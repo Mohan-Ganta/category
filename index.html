@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Display @ Master Mohan</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url(./bg.png);
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .image-name {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 20px;
+            text-transform: uppercase;
+            
+        }
+        .image {
+            display: none;
+            max-width: 300px;
+            max-height: 300px;
+            border: 3px solid #007BFF;
+            border-radius: 10px;
+        }
+        .image.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="image-container">
+        <span class="image-name" onclick="showImage(0)">Shopping</span>
+        <span class="image-name" onclick="showImage(1)">TV</span>
+        <span class="image-name" onclick="showImage(2)">Sports</span>
+    </div>
+     <br>
+    <div class="image-display">
+        <img class="image" id="image-1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3o3DJs1DAf1ieJSds415inZ0Bi8sY5huoD41TOB-PrITEjCEMbWWTp30eEa-bUmvQaEk&usqp=CAU" alt="Image 1">
+        <img class="image" id="image-2" src="https://i.ytimg.com/vi/YXMgO8TwxI8/maxresdefault.jpg" alt="Image 2">
+        <img class="image" id="image-3" src="https://media.istockphoto.com/id/1141191007/vector/sports-set-of-athletes-of-various-sports-disciplines-isolated-vector-silhouettes-run-soccer.jpg?s=612x612&w=0&k=20&c=SEabW4SHZ7blMHJPxZNSTl_anOMHO3whQI7HIMxFpSg=" alt="Image 3">
+    </div>
+</center>
+    <script>
+        function showImage(imageIndex) {
+            const images = document.querySelectorAll('.image');
+            images.forEach((image, index) => {
+                if (index === imageIndex) {
+                    image.classList.add('active');
+                } else {
+                    image.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
